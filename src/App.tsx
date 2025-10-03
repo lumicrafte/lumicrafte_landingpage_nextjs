@@ -1,6 +1,7 @@
 import { Sparkles, Palette, Smartphone, Zap, ArrowRight, Mail, Linkedin, Twitter, Instagram, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import env from './config/env';
+import logo from '../assets/lumicrafte.png';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,9 +33,9 @@ function App() {
           {/* Logo */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            Lumicrafte
+            <img src={logo} alt="Lumicrafte" className="h-10" />
           </button>
 
           {/* Desktop Navigation */}
@@ -268,9 +269,7 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
             <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
-                Lumicrafte
-              </h3>
+              <img src={logo} alt="Lumicrafte" className="h-12 mb-2 mx-auto md:mx-0" />
               <p className="text-gray-400 text-sm">Crafting Digital Experiences with Light & Precision</p>
             </div>
 
