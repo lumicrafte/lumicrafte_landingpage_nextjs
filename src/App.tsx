@@ -1,5 +1,6 @@
 import { Sparkles, Palette, Smartphone, Zap, ArrowRight, Mail, Linkedin, Twitter, Instagram, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import env from './config/env';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,7 +55,7 @@ function App() {
               Contact
             </button>
             <a
-              href={import.meta.env.VITE_GOOGLE_FORM_URL}
+              href={env.googleFormUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 cursor-pointer"
@@ -93,7 +94,7 @@ function App() {
                 Contact
               </button>
               <a
-                href={import.meta.env.VITE_GOOGLE_FORM_URL}
+                href={env.googleFormUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 mt-2 cursor-pointer"
@@ -127,7 +128,7 @@ function App() {
           </p>
 
           <a
-            href={import.meta.env.VITE_GOOGLE_FORM_URL}
+            href={env.googleFormUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 cursor-pointer"
@@ -251,7 +252,7 @@ function App() {
             Whether it's a fresh app concept or a product that needs polish, Lumicrafte is here to help.
           </p>
           <a
-            href={import.meta.env.VITE_GOOGLE_FORM_URL}
+            href={env.googleFormUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105 cursor-pointer"
