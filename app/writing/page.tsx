@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader';
 import CompactFooter from '../components/CompactFooter';
 import NewsletterForm from '../components/NewsletterForm';
 import WritingIndex from '../components/WritingIndex';
+import { getCategories, getFeaturedPost, getListedPosts } from '../../lib/posts';
 
 export const metadata: Metadata = {
   title: 'Writing',
@@ -20,7 +21,11 @@ export default function Page() {
         ]}
       />
 
-      <WritingIndex />
+      <WritingIndex
+        featured={getFeaturedPost()}
+        posts={getListedPosts()}
+        categories={getCategories()}
+      />
 
       <section aria-label="Newsletter" className="mx-auto max-w-[1280px] px-[26px] pb-[84px]">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-center gap-[30px] rounded-[14px] bg-invert-bg px-8 py-10 text-invert-ink">

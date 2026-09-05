@@ -162,3 +162,193 @@
     transform: none;
   }
 }
+
+/* Rendered markdown. Values mirror the article design so a plain .md file
+   comes out looking like the hand-built prototype. */
+@layer components {
+  .lc-prose > *:first-child {
+    margin-top: 0;
+  }
+
+  .lc-prose p {
+    margin: 26px 0 0;
+    font-size: 17.5px;
+    line-height: 1.78;
+    color: rgba(var(--ink-rgb), 0.82);
+  }
+
+  .lc-prose h2 {
+    margin: 52px 0 0;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 600;
+    line-height: 1.16;
+    letter-spacing: -0.035em;
+  }
+
+  .lc-prose h3 {
+    margin: 40px 0 0;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .lc-prose h2 + p,
+  .lc-prose h3 + p {
+    margin-top: 18px;
+  }
+
+  .lc-prose a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .lc-prose strong {
+    font-weight: 600;
+  }
+
+  .lc-prose ul,
+  .lc-prose ol {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .lc-prose li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: 14px;
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: rgba(var(--ink-rgb), 0.8);
+  }
+
+  .lc-prose ul > li::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    margin-top: 10px;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+
+  .lc-prose ol {
+    counter-reset: lc-ol;
+  }
+
+  .lc-prose ol > li {
+    counter-increment: lc-ol;
+  }
+
+  .lc-prose ol > li::before {
+    content: counter(lc-ol) ".";
+    font-family: var(--font-jetbrains), monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+
+  .lc-prose blockquote {
+    margin: 48px 0 0;
+    padding: 4px 0 4px 26px;
+    border-left: 2px solid var(--accent);
+  }
+
+  .lc-prose blockquote p {
+    margin: 0;
+    font-size: clamp(20px, 2.4vw, 25px);
+    font-weight: 500;
+    line-height: 1.42;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+
+  .lc-prose figure {
+    margin: 44px 0 0;
+  }
+
+  .lc-prose figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(var(--ink-rgb), 0.14);
+    border-radius: 10px;
+  }
+
+  .lc-prose figcaption {
+    margin-top: 12px;
+    font-family: var(--font-jetbrains), monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(var(--ink-rgb), 0.66);
+  }
+
+  .lc-prose hr {
+    margin: 48px 0 0;
+    border: 0;
+    border-top: 1px solid rgba(var(--ink-rgb), 0.13);
+  }
+
+  .lc-prose :not(pre) > code {
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(var(--ink-rgb), 0.07);
+    font-family: var(--font-jetbrains), monospace;
+    font-size: 0.9em;
+  }
+
+  .lc-prose table {
+    display: block;
+    margin: 28px 0 0;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+
+  .lc-prose th,
+  .lc-prose td {
+    padding: 10px 14px;
+    border: 1px solid rgba(var(--ink-rgb), 0.14);
+    text-align: left;
+  }
+
+  .lc-prose th {
+    font-weight: 600;
+  }
+
+  /* Code panel — dark in both themes, matching --code-bg in the design. */
+  .lc-code {
+    margin: 28px 0 0;
+    border: 1px solid rgba(var(--ink-rgb), 0.16);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--code-bg);
+  }
+
+  .lc-code-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(var(--invert-ink-rgb), 0.12);
+    font-family: var(--font-jetbrains), monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    color: rgba(var(--invert-ink-rgb), 0.66);
+  }
+
+  .lc-code pre {
+    margin: 0;
+    padding: 20px 18px;
+    overflow-x: auto;
+    font-family: var(--font-jetbrains), monospace;
+    font-size: 13.5px;
+    line-height: 1.75;
+    /* Let the panel's own --code-bg show through Shiki's theme background. */
+    background: transparent !important;
+  }
+}
