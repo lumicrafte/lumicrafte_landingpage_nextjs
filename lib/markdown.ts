@@ -12,7 +12,9 @@ const SHIKI_THEME = 'github-dark';
 
 const PRELOADED_LANGS = [
   'ts', 'tsx', 'js', 'jsx', 'json', 'html', 'css', 'bash', 'sh',
-  'md', 'yaml', 'sql', 'python', 'diff',
+  'md', 'yaml', 'toml', 'sql', 'python', 'diff',
+  'rust', 'go', 'java', 'kotlin', 'swift', 'c', 'cpp', 'csharp',
+  'ruby', 'php', 'xml', 'graphql', 'dockerfile',
 ];
 
 let highlighterPromise: Promise<Highlighter> | null = null;
@@ -41,6 +43,13 @@ const LANGUAGE_LABELS: Record<string, string> = {
   yml: 'YAML',
   yaml: 'YAML',
   diff: 'DIFF',
+  cpp: 'C++',
+  csharp: 'C#',
+  go: 'GO',
+  rs: 'RUST',
+  graphql: 'GRAPHQL',
+  dockerfile: 'DOCKERFILE',
+  text: '',
 };
 
 function languageLabel(lang: string) {
@@ -110,11 +119,14 @@ function rehypeCodePanel(highlighter: Highlighter) {
           theme: SHIKI_THEME,
         });
 
+        // Skip the bar entirely when there is nothing to put in it — an empty
+        // header strip reads as a rendering glitch.
+        const label = languageLabel(requested);
         const bar =
-          title || requested
+          title || label
             ? `<div class="lc-code-head"><span>${
                 title ? escapeHtml(String(title)).toUpperCase() : ''
-              }</span><span>${escapeHtml(languageLabel(requested))}</span></div>`
+              }</span><span>${escapeHtml(label)}</span></div>`
             : '';
 
         parent.children![index] = {

@@ -2,9 +2,8 @@
 title: The cost of a hundred milliseconds
 dek: Perceived speed is a design decision before it is an engineering one. Notes on where latency actually comes from in the interfaces we build.
 category: ENGINEERING NOTES
-date: 2026-09-05
+date: 2026-06-17
 tags: [PERFORMANCE, UX, ENGINEERING]
-featured: true
 ---
 
 Every product we have worked on has had a moment where it stopped feeling good to
