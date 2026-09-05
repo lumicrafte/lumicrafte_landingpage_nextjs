@@ -1,11 +1,164 @@
 @import "tailwindcss";
 
+/* Design tokens — from Lumicrafte Landing Page.dc.html (direction B / blueprint). */
+:root {
+  --paper: #F6F5F1;
+  --paper-rgb: 246, 245, 241;
+  --ink: #16161C;
+  --ink-rgb: 22, 22, 28;
+  --raised: #FFFEFB;
+  --accent: #6D4BE0;
+  --accent-2: #A78BFA;
+  --invert-bg: #16161C;
+  --invert-ink: #F6F5F1;
+  --invert-ink-rgb: 246, 245, 241;
+  --code-bg: #15151C;
+  --code-ink: #E9E7F0;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --paper: #0E0E13;
+  --paper-rgb: 14, 14, 19;
+  --ink: #ECEAF2;
+  --ink-rgb: 236, 234, 242;
+  --raised: #15151C;
+  --accent: #A78BFA;
+  --accent-2: #C4B5FD;
+  --invert-bg: #191921;
+  --invert-ink: #ECEAF2;
+  --invert-ink-rgb: 236, 234, 242;
+  --code-bg: #08080C;
+  --code-ink: #E9E7F0;
+  color-scheme: dark;
+}
+
+/* `inline` keeps the var reference in the generated utility, so bg-paper /
+   text-ink/70 re-resolve when data-theme flips. */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-raised: var(--raised);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-invert-bg: var(--invert-bg);
+  --color-invert-ink: var(--invert-ink);
+  --color-code-bg: var(--code-bg);
+  --color-code-ink: var(--code-ink);
+
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+}
+
 @layer base {
   html {
-    scroll-behavior: smooth;
+    background: var(--paper);
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-archivo), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+
+  ::selection {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+
+@layer components {
+  /* The blueprint grid behind every page hero. */
+  .lc-grid-bg {
+    background-image:
+      linear-gradient(rgba(var(--ink-rgb), 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--ink-rgb), 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Hatched fill used for every image placeholder slot. */
+  .lc-hatch {
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(var(--ink-rgb), 0.05) 0 1px,
+      transparent 1px 9px
+    );
+  }
+
+  .lc-rule {
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(var(--ink-rgb), 0.055) 0 1px,
+      transparent 1px 12px
+    );
+  }
+
+  .lc-spectrum {
+    background: linear-gradient(140deg, #4EC3F7, #7C5CF0 50%, #FFC233);
+  }
+
+  /* Theme toggle: driven by the data-theme attribute rather than React state so
+     it paints correctly on first frame, before hydration. */
+  .lc-knob {
+    transform: translateX(0);
+  }
+
+  :root[data-theme="dark"] .lc-knob {
+    transform: translateX(26px);
+  }
+
+  .lc-icon-sun {
+    opacity: 1;
+  }
+
+  .lc-icon-moon {
+    opacity: 0;
+  }
+
+  :root[data-theme="dark"] .lc-icon-sun {
+    opacity: 0;
+  }
+
+  :root[data-theme="dark"] .lc-icon-moon {
+    opacity: 1;
+  }
+
+  /* Scroll reveal — set up by Reveal.tsx, which removes it when unsupported. */
+  .lc-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 620ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 620ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .lc-reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .lc-reveal {
+    opacity: 1;
+    transform: none;
   }
 }
