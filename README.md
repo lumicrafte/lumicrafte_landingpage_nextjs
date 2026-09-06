@@ -1,4 +1,5 @@
 # Lumicrafte Landing Page
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e19d6e7f-e57d-4d3d-aa2b-40ef14b7fdac/deploy-status)](https://app.netlify.com/projects/lumicrafte/deploys)
 
 Marketing site for Lumicrafte — software products, custom software, and design
 services. Implements the "blueprint" direction handed off from Claude Design.
