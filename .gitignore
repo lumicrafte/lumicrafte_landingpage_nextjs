@@ -26,3 +26,8 @@ out
 
 # TypeScript incremental build info
 *.tsbuildinfo
+
+# Using npm; a second lockfile makes CI resolve a different tree
+yarn.lock
+.yarn/
+.pnp.*

@@ -1,19 +1,26 @@
 import type { Metadata } from 'next';
-import { Archivo, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
-const archivo = Archivo({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+// Self-hosted rather than next/font/google: the Google loader fetches font CSS
+// at build time, which makes the build depend on an external service and fail
+// in CI when that response is not shaped exactly as it expects.
+const archivo = localFont({
+  src: './fonts/Archivo-Variable.woff2',
+  weight: '100 900',
+  style: 'normal',
   variable: '--font-archivo',
   display: 'swap',
+  fallback: ['system-ui', 'sans-serif'],
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
+const jetbrainsMono = localFont({
+  src: './fonts/JetBrainsMono-Variable.woff2',
+  weight: '100 800',
+  style: 'normal',
   variable: '--font-jetbrains',
   display: 'swap',
+  fallback: ['ui-monospace', 'monospace'],
 });
 
 const DESCRIPTION =
