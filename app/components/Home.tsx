@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
@@ -184,19 +185,38 @@ export default function Home() {
           <h2 className={`${H2} mt-4`}>Products we’re crafting.</h2>
           <div className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] overflow-hidden rounded-[10px] border border-ink/14">
             <div className="px-[30px] py-[34px]">
+              <div className={KICKER}>WEB APP • FREE • PRIVATE</div>
+              <h3 className="mt-3 mb-[10px] text-[25px] font-semibold tracking-[-0.03em]">
+                Store Screenshot Generator
+              </h3>
               <p className="m-0 max-w-[44ch] text-[16.5px] leading-[1.68] text-ink/70">
-                Our first product is in development. When it ships it will live here — with its
-                category, platforms, and a real walkthrough. No placeholders in the meantime.
+                Turn raw app screenshots into store-ready images for the App Store and Google
+                Play. Pick a layout and a look, add your headlines, and export every size. It runs
+                entirely in your browser, so your screenshots never leave your device.
               </p>
-              <CtaButton className="mt-6 inline-block border-b border-[rgba(109,75,224,0.5)] pb-[3px] font-mono text-[12px] tracking-[0.14em] hover:border-accent">
-                GET NOTIFIED →
-              </CtaButton>
+              <a
+                href="https://screenshots.lumicrafte.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-block border-b border-[rgba(109,75,224,0.5)] pb-[3px] font-mono text-[12px] tracking-[0.14em] hover:border-accent"
+              >
+                TRY IT →
+              </a>
             </div>
-            <div className="lc-hatch grid min-h-[220px] place-items-center border-l border-ink/12 p-[22px]">
-              <span className="text-center font-mono text-[10.5px] tracking-[0.18em] text-ink/66">
-                PRODUCT ONE — IN DEVELOPMENT
-              </span>
-            </div>
+            <a
+              href="https://screenshots.lumicrafte.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lc-hatch block border-l border-ink/12 p-[22px]"
+            >
+              <Image
+                src="https://screenshots.lumicrafte.com/learn/editor-slides.png"
+                alt="The Store Screenshot Generator editor, showing a slide list, a phone preview on a gradient background, and layout options"
+                width={2880}
+                height={2400}
+                className="h-auto w-full rounded-[8px] border border-ink/14 shadow-[0_10px_30px_rgba(0,0,0,0.12)]"
+              />
+            </a>
           </div>
         </Reveal>
       </section>
