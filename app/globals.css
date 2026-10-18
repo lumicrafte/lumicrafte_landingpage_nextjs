@@ -134,6 +134,21 @@
     opacity: 1;
   }
 
+  /* Product screenshots that have a dark and a light capture: show the one that
+     matches the site theme. The attribute is set before first paint, so there
+     is no flash of the wrong one. */
+  .lc-shot-dark {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .lc-shot-dark {
+    display: block;
+  }
+
+  :root[data-theme="dark"] .lc-shot-light {
+    display: none;
+  }
+
   /* Scroll reveal — set up by Reveal.tsx, which removes it when unsupported. */
   .lc-reveal {
     opacity: 0;

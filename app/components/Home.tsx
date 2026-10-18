@@ -218,6 +218,55 @@ export default function Home() {
               />
             </a>
           </div>
+
+          {/* Enso */}
+          <div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] overflow-hidden rounded-[10px] border border-ink/14">
+            <Link
+              href="/enso"
+              aria-label="Enso: private budget and expense tracker for iPhone"
+              className="lc-hatch flex items-end justify-center gap-4 border-ink/12 px-[22px] pt-[30px] min-[700px]:order-first min-[700px]:border-r"
+            >
+              {(['home', 'budget'] as const).map((name, i) => (
+                <span
+                  key={name}
+                  className={`w-[44%] max-w-[190px] overflow-hidden rounded-t-[22px] border border-b-0 border-ink/16 shadow-[0_10px_30px_rgba(0,0,0,0.14)] ${
+                    i === 1 ? 'mt-10' : ''
+                  }`}
+                >
+                  <Image
+                    src={`/enso/screens/${name}-light.webp`}
+                    alt="Enso app screen"
+                    width={780}
+                    height={1691}
+                    className="lc-shot-light h-auto w-full"
+                  />
+                  <Image
+                    src={`/enso/screens/${name}-dark.webp`}
+                    alt="Enso app screen"
+                    width={780}
+                    height={1691}
+                    className="lc-shot-dark h-auto w-full"
+                  />
+                </span>
+              ))}
+            </Link>
+            <div className="px-[30px] py-[34px]">
+              <div className={KICKER}>IPHONE APP • FREE + PRO • PRIVATE</div>
+              <h3 className="mt-3 mb-[10px] text-[25px] font-semibold tracking-[-0.03em]">Enso</h3>
+              <p className="m-0 max-w-[44ch] text-[16.5px] leading-[1.68] text-ink/70">
+                A budget and expense tracker that never asks for your bank login. Every
+                transaction stays on your iPhone, with budgets that start on payday, a live
+                “left to spend” dial, and insights that tell you what changed. Free forever, no
+                ads.
+              </p>
+              <Link
+                href="/enso"
+                className="mt-6 inline-block border-b border-[rgba(109,75,224,0.5)] pb-[3px] font-mono text-[12px] tracking-[0.14em] hover:border-accent"
+              >
+                SEE ENSO →
+              </Link>
+            </div>
+          </div>
         </Reveal>
       </section>
 
