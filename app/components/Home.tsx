@@ -222,7 +222,7 @@ export default function Home() {
           {/* Enso */}
           <div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] overflow-hidden rounded-[10px] border border-ink/14">
             <Link
-              href="/enso"
+              href="/apps/enso"
               aria-label="Enso: private budget and expense tracker for iPhone"
               className="lc-hatch flex items-end justify-center gap-4 border-ink/12 px-[22px] pt-[30px] min-[700px]:order-first min-[700px]:border-r"
             >
@@ -260,7 +260,7 @@ export default function Home() {
                 ads.
               </p>
               <Link
-                href="/enso"
+                href="/apps/enso"
                 className="mt-6 inline-block border-b border-[rgba(109,75,224,0.5)] pb-[3px] font-mono text-[12px] tracking-[0.14em] hover:border-accent"
               >
                 SEE ENSO →

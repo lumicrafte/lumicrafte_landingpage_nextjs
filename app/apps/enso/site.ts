@@ -15,7 +15,7 @@ export const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.lumic
 
 export const SUPPORT_EMAIL = 'support@lumicrafte.com';
 
-export const PAGE_URL = 'https://lumicrafte.com/enso';
+export const PAGE_URL = 'https://lumicrafte.com/apps/enso';
 
 export const TITLE = 'Enso — Private Budget & Expense Tracker for iPhone';
 export const DESCRIPTION =
